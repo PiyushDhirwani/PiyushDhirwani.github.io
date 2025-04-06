@@ -53,9 +53,9 @@
       var n = a(8),
         l = a.n(n),
         c = {
-          username: "PiyushDhirwani",
-          title: "How's going? Piyush Here",
-          subTitle: l()("I'm Intersted in Learning Cloud Computing\ud83d\udcbb"),
+          username: "Piyush Dhirwani",
+          title: "Isn't the Profile Very Attentive",
+          subTitle: l()("Let's Grow Solid and Bring Change. Would be lucky to have you as Company on my Career Portfolio \ud83e\udd16"),
           resumeLink: "https://github.com/PiyushDhirwani",
         },
         r = {
@@ -67,14 +67,16 @@
             "https://www.cloudskillsboost.google/public_profiles/8da44e09-d609-441f-b147-4d6f7bbf9ed5",
         },
         i = {
-          title: "How's my Coding lifestyle",
+          title: "How's Tech Journey Going",
           subTitle:
             "here are some of things that I do to keep up mind with Technology",
           skills: [
-            l()("\u26a1 Love To Participate in Coding Chanllenges/Competitive Programming"),
-            l()("\u26a1 Like to work with on-primeses Hadoop, Airflow etc."),
+            l()("\u27a1\ufe0f Have been working on Java Springboot for past couple of year"),
+            l()("\u27a1\ufe0f Good Level of Understanding for System Design"),
+            l()("\u27a1\ufe0f Love To Participate in Coding Chanllenges/Competitive Programming"),
+            l()("\u27a1\ufe0f Like to work with on-primeses Hadoop, Airflow etc."),
             l()(
-              "\u26a1 Intersted in Creating data pipelines on cloud platforms"
+              "\u27a1\ufe0f Intersted in Creating data pipelines on cloud platforms"
             ),
           ],
           softwareSkills: [
@@ -102,9 +104,9 @@
             {
               schoolName: "IIT Gandhinagar",
               logo: a(25),
-              subHeader: "B.Tech Chemical with CSE Minors",
-              duration: "Nov. 2020 - Present",
-              desc: "Indian Institute of Technology Gandhinagar Palaj, Gandhinagar - 382055, Gujarat",
+              subHeader: "B.Tech (Bachlor of Technology)",
+              duration: "November 2020 - June 2024",
+              desc: "Indian Institute of Technology Gandhinagar",
             },
           ],
         },
