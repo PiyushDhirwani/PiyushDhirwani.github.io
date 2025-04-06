@@ -55,7 +55,7 @@
         c = {
           username: "Piyush Dhirwani",
           title: "Isn't the Profile Very Attentive",
-          subTitle: l()("Let's Grow Solid and Bring Change. Would be lucky to have you as Company on my Career Portfolio \ud83e\udd16"),
+          subTitle: l()("Let's Grow Solid and Bring Change. Would be lucky to have you as Company on my Career Portfolio 🤖"),
           resumeLink: "https://github.com/PiyushDhirwani",
         },
         r = {
