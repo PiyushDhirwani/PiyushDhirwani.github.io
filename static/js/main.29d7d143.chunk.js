@@ -741,7 +741,7 @@
                     l.a.createElement(
                       "span",
                       { className: "wave-emoji" },
-                      j()("\ud83d\udc4b")
+                      j()("👋")
                     )
                   ),
                   l.a.createElement(
