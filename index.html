@@ -85,7 +85,7 @@
     }
 
     .hero-photo {
-      object-position: 50% 35%;
+      object-position: 50% 50%;
     }
 
     @media (pointer: coarse) {
@@ -106,12 +106,17 @@
   <div class="fixed inset-0 -z-20 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
 
   <header class="sticky top-0 z-20 border-b border-white/5 bg-slate-950/80 backdrop-blur">
-    <div class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-      <div class="text-sm font-semibold tracking-wide text-slate-300">
-        <span class="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500/10 text-brand-300 text-xs">
-          PD
-        </span>
-        Piyush Dhirwani
+    <div class="mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3 text-sm font-semibold tracking-wide text-slate-300">
+        <div class="h-9 w-9 overflow-hidden rounded-full border border-white/10 bg-slate-900/80">
+          <img src="/static/media/piyush-profile.png" alt="Piyush Dhirwani" class="h-full w-full object-cover">
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500/10 text-brand-300 text-xs">
+            PD
+          </span>
+          <span>Piyush Dhirwani</span>
+        </div>
       </div>
       <nav class="hidden gap-6 text-sm text-slate-300 md:flex">
         <a href="#journey" class="hover:text-white">Journey</a>
@@ -194,7 +199,7 @@
       <div class="space-y-4 rounded-3xl border border-white/5 bg-white/5 p-5 shadow-2xl shadow-slate-900/40 backdrop-blur reveal-visible">
         <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60">
           <img src="/static/media/convocation.jpg" alt="Graduation ceremony"
-            class="h-56 w-full object-cover hero-photo">
+            class="h-64 w-full object-cover hero-photo">
           <div class="px-3 py-2 text-xs text-slate-200">
             Receiving my convocation degree — the starting point of this journey.
           </div>
@@ -561,7 +566,16 @@
       const cursor = document.getElementById('cursor-dot');
       if (cursor) {
         window.addEventListener('pointermove', (event) => {
+          cursor.style.opacity = '0.95';
           cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        });
+
+        window.addEventListener('pointerleave', () => {
+          cursor.style.opacity = '0';
+        });
+
+        window.addEventListener('pointerenter', () => {
+          cursor.style.opacity = '0.95';
         });
       }
 
