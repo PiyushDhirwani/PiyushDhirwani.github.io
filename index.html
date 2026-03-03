@@ -50,8 +50,10 @@
       background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 55%), radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.7), transparent 55%);
     }
 
-    body {
-      cursor: none;
+    html,
+    body,
+    * {
+      cursor: none !important;
     }
 
     .cursor-dot {
@@ -80,6 +82,10 @@
     .reveal-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .hero-photo {
+      object-position: 50% 35%;
     }
 
     @media (pointer: coarse) {
@@ -187,7 +193,8 @@
 
       <div class="space-y-4 rounded-3xl border border-white/5 bg-white/5 p-5 shadow-2xl shadow-slate-900/40 backdrop-blur reveal-visible">
         <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60">
-          <img src="/static/media/convocation.jpg" alt="Graduation ceremony" class="h-56 w-full object-cover object-left">
+          <img src="/static/media/convocation.jpg" alt="Graduation ceremony"
+            class="h-56 w-full object-cover hero-photo">
           <div class="px-3 py-2 text-xs text-slate-200">
             Receiving my convocation degree — the starting point of this journey.
           </div>
