@@ -124,8 +124,6 @@
     }
 
     .journey-icon {
-      grid-column: 2;
-      justify-self: center;
       position: relative !important;
       left: auto !important;
       top: auto !important;
@@ -174,6 +172,18 @@
 
     .journey-step:nth-child(even) .journey-card {
       grid-column: 1;
+    }
+
+    .journey-step:nth-child(odd) .journey-icon {
+      grid-column: 3;
+      justify-self: start;
+      margin-left: calc(-28px);
+    }
+
+    .journey-step:nth-child(even) .journey-icon {
+      grid-column: 1;
+      justify-self: end;
+      margin-right: calc(-28px);
     }
 
     .journey-step:nth-child(odd) .journey-card::before,
@@ -225,6 +235,8 @@
         grid-column: 1;
         justify-self: start;
         margin-top: 16px;
+        margin-left: 0;
+        margin-right: 0;
       }
 
       .journey-step:nth-child(odd) .journey-card,
@@ -477,8 +489,8 @@
         </svg>
 
         <div class="relative space-y-8">
-          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
-            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-slate-900/90 p-2 shadow-lg">
+          <article class="journey-box journey-step relative" data-journey-step>
+            <div class="journey-icon flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-slate-900/90 p-2 shadow-lg">
               <img src="/static/media/iitgn_logo.png" alt="IIT Gandhinagar" class="h-full w-full object-contain">
             </div>
             <div class="journey-card flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
@@ -488,8 +500,8 @@
             </div>
           </article>
 
-          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
-            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
+          <article class="journey-box journey-step relative" data-journey-step>
+            <div class="journey-icon flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
               <img src="/static/media/adani.png" alt="Adani Group" class="h-full w-full object-contain">
             </div>
             <div class="journey-card flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
@@ -499,8 +511,8 @@
             </div>
           </article>
 
-          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
-            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
+          <article class="journey-box journey-step relative" data-journey-step>
+            <div class="journey-icon flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
               <img src="static/media/bny_logo.png" alt="BNY" class="h-full w-full object-contain">
             </div>
             <div class="journey-card flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
@@ -510,8 +522,8 @@
             </div>
           </article>
 
-          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
-            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-brand-500/30 bg-brand-500/10 p-2 shadow-lg">
+          <article class="journey-box journey-step relative" data-journey-step>
+            <div class="journey-icon flex h-12 w-12 items-center justify-center rounded-xl border border-brand-500/30 bg-brand-500/10 p-2 shadow-lg">
               <img src="static/media/bny_logo.png" alt="BNY Mellon" class="h-full w-full object-contain">
             </div>
             <div class="journey-card flex-1 rounded-2xl border border-brand-500/20 bg-slate-950/80 p-5 shadow-xl">
@@ -817,13 +829,26 @@
       const journeySnakePath = document.getElementById('journey-snake-path');
       const journeySnakeArrows = document.getElementById('journey-snake-arrows');
 
+      let journeySnakeRaf = 0;
+
+      function scheduleJourneySnakeRebuild() {
+        if (journeySnakeRaf) return;
+        journeySnakeRaf = window.requestAnimationFrame(() => {
+          journeySnakeRaf = 0;
+          buildJourneySnakePath();
+          const visibleCount = document.querySelectorAll('[data-journey-step].visible').length;
+          const total = journeySteps.length;
+          if (total > 0) setSnakeProgress(visibleCount / total);
+        });
+      }
+
       function buildJourneySnakePath() {
         if (!journeyTimeline || !journeySnakeSvg || !journeySnakePath) return;
 
-        const timelineRect = journeyTimeline.getBoundingClientRect();
         const stepNodes = Array.from(document.querySelectorAll('[data-journey-step]'));
         if (stepNodes.length === 0) return;
 
+        const timelineRect = journeyTimeline.getBoundingClientRect();
         const width = Math.max(1, Math.round(timelineRect.width));
         const height = Math.max(1, Math.round(journeyTimeline.scrollHeight));
         journeySnakeSvg.setAttribute('viewBox', `0 0 ${width} ${height}`);
@@ -836,11 +861,14 @@
           const card = node.querySelector('.journey-card');
           if (!card) return null;
           const cardRect = card.getBoundingClientRect();
+
           const y = Math.round((cardRect.top - timelineRect.top) + 44);
-          const isRight = cardRect.left > timelineRect.left + width / 2;
+          const cardMidX = cardRect.left + (cardRect.width / 2);
+          const isRight = cardMidX > (timelineRect.left + (timelineRect.width / 2));
           const x = isRight
             ? Math.round(cardRect.left - timelineRect.left)
             : Math.round(cardRect.right - timelineRect.left);
+
           return { x, y, isRight };
         }).filter(Boolean);
 
@@ -849,14 +877,13 @@
         points.push({ x: leftStartX, y: touchPoints[0].y });
         points.push({ x: railX, y: touchPoints[0].y });
         points.push({ x: touchPoints[0].x, y: touchPoints[0].y });
+        points.push({ x: railX, y: touchPoints[0].y });
 
         for (let i = 1; i < touchPoints.length; i += 1) {
-          const prev = touchPoints[i - 1];
           const cur = touchPoints[i];
-
-          points.push({ x: prev.x, y: cur.y });
           points.push({ x: railX, y: cur.y });
           points.push({ x: cur.x, y: cur.y });
+          points.push({ x: railX, y: cur.y });
         }
 
         const d = points.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
@@ -901,6 +928,9 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
+
+              scheduleJourneySnakeRebuild();
+              window.setTimeout(scheduleJourneySnakeRebuild, 650);
             }
           });
           if (journeyTimeline && journeySteps.length > 0) {
@@ -919,12 +949,8 @@
 
       journeySteps.forEach((step) => journeyObserver.observe(step));
 
-      window.addEventListener('resize', () => {
-        buildJourneySnakePath();
-        const visibleCount = document.querySelectorAll('[data-journey-step].visible').length;
-        const total = journeySteps.length;
-        if (total > 0) setSnakeProgress(visibleCount / total);
-      });
+      window.addEventListener('resize', scheduleJourneySnakeRebuild);
+      window.addEventListener('scroll', scheduleJourneySnakeRebuild, { passive: true });
     })();
   </script>
 </body>
