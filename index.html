@@ -138,6 +138,36 @@
       position: relative;
     }
 
+    .journey-card::before,
+    .journey-card::after {
+      display: none !important;
+    }
+
+    #journey-snake {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #journey-snake path {
+      stroke: rgba(148, 163, 184, 0.45);
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: square;
+      stroke-linejoin: miter;
+    }
+
+    #journey-snake path.snake-active {
+      stroke: url(#journeyGradient);
+    }
+
+    #journey-snake .snake-arrow {
+      fill: rgba(148, 163, 184, 0.75);
+    }
+
     .journey-step:nth-child(odd) .journey-card {
       grid-column: 3;
     }
@@ -435,8 +465,16 @@
 
       <!-- Journey steps as connected boxes -->
       <div id="journey-timeline" class="relative mx-auto max-w-2xl">
-        <div class="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-slate-700/60" aria-hidden="true"></div>
-        <div id="journey-connector" class="absolute left-1/2 top-0 w-0.5 -translate-x-1/2 bg-gradient-to-b from-brand-500 to-emerald-500 journey-line" aria-hidden="true"></div>
+        <svg id="journey-snake" aria-hidden="true" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="journeyGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4f46e5" />
+              <stop offset="100%" stop-color="#34d399" />
+            </linearGradient>
+          </defs>
+          <path id="journey-snake-path" d="" />
+          <g id="journey-snake-arrows"></g>
+        </svg>
 
         <div class="relative space-y-8">
           <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
@@ -773,8 +811,90 @@
       });
 
       const journeySteps = document.querySelectorAll('[data-journey-step]');
-      const journeyConnector = document.getElementById('journey-connector');
       const journeyTimeline = document.getElementById('journey-timeline');
+
+      const journeySnakeSvg = document.getElementById('journey-snake');
+      const journeySnakePath = document.getElementById('journey-snake-path');
+      const journeySnakeArrows = document.getElementById('journey-snake-arrows');
+
+      function buildJourneySnakePath() {
+        if (!journeyTimeline || !journeySnakeSvg || !journeySnakePath) return;
+
+        const timelineRect = journeyTimeline.getBoundingClientRect();
+        const stepNodes = Array.from(document.querySelectorAll('[data-journey-step]'));
+        if (stepNodes.length === 0) return;
+
+        const width = Math.max(1, Math.round(timelineRect.width));
+        const height = Math.max(1, Math.round(journeyTimeline.scrollHeight));
+        journeySnakeSvg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+        const leftStartX = 8;
+        const railX = Math.round(width / 2);
+        const points = [];
+
+        const touchPoints = stepNodes.map((node) => {
+          const card = node.querySelector('.journey-card');
+          if (!card) return null;
+          const cardRect = card.getBoundingClientRect();
+          const y = Math.round((cardRect.top - timelineRect.top) + 44);
+          const isRight = cardRect.left > timelineRect.left + width / 2;
+          const x = isRight
+            ? Math.round(cardRect.left - timelineRect.left)
+            : Math.round(cardRect.right - timelineRect.left);
+          return { x, y, isRight };
+        }).filter(Boolean);
+
+        if (touchPoints.length === 0) return;
+
+        points.push({ x: leftStartX, y: touchPoints[0].y });
+        points.push({ x: railX, y: touchPoints[0].y });
+        points.push({ x: touchPoints[0].x, y: touchPoints[0].y });
+
+        for (let i = 1; i < touchPoints.length; i += 1) {
+          const prev = touchPoints[i - 1];
+          const cur = touchPoints[i];
+
+          points.push({ x: prev.x, y: cur.y });
+          points.push({ x: railX, y: cur.y });
+          points.push({ x: cur.x, y: cur.y });
+        }
+
+        const d = points.map((p, idx) => `${idx === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ');
+        journeySnakePath.setAttribute('d', d);
+        journeySnakePath.classList.add('snake-active');
+
+        if (journeySnakeArrows) {
+          journeySnakeArrows.innerHTML = '';
+          const arrowSize = 10;
+
+          touchPoints.forEach((tp, idx) => {
+            const dir = tp.isRight ? 1 : -1;
+            const tipX = tp.x;
+            const tipY = tp.y;
+            const baseX = tipX - dir * arrowSize;
+            const p1 = `${tipX},${tipY}`;
+            const p2 = `${baseX},${tipY - 5}`;
+            const p3 = `${baseX},${tipY + 5}`;
+
+            const poly = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+            poly.setAttribute('points', `${p1} ${p2} ${p3}`);
+            poly.setAttribute('class', 'snake-arrow');
+            poly.setAttribute('data-arrow-idx', String(idx));
+            journeySnakeArrows.appendChild(poly);
+          });
+        }
+
+        const totalLen = journeySnakePath.getTotalLength();
+        journeySnakePath.style.strokeDasharray = `${totalLen}`;
+        journeySnakePath.style.strokeDashoffset = `${totalLen}`;
+      }
+
+      function setSnakeProgress(progress) {
+        if (!journeySnakePath) return;
+        const totalLen = journeySnakePath.getTotalLength();
+        const clamped = Math.max(0, Math.min(1, progress));
+        journeySnakePath.style.strokeDashoffset = `${totalLen * (1 - clamped)}`;
+      }
 
       const journeyObserver = new IntersectionObserver(
         (entries) => {
@@ -783,20 +903,28 @@
               entry.target.classList.add('visible');
             }
           });
-          if (journeyConnector && journeyTimeline) {
+          if (journeyTimeline && journeySteps.length > 0) {
             const visibleCount = document.querySelectorAll('[data-journey-step].visible').length;
             const total = journeySteps.length;
             if (visibleCount > 0) {
-              const stepHeight = journeyTimeline.scrollHeight / total;
-              journeyConnector.style.height = `${visibleCount * stepHeight}px`;
-              journeyConnector.classList.add('connected');
+              setSnakeProgress(visibleCount / total);
             }
           }
         },
         { threshold: 0.3 }
       );
 
+      buildJourneySnakePath();
+      setSnakeProgress(0);
+
       journeySteps.forEach((step) => journeyObserver.observe(step));
+
+      window.addEventListener('resize', () => {
+        buildJourneySnakePath();
+        const visibleCount = document.querySelectorAll('[data-journey-step].visible').length;
+        const total = journeySteps.length;
+        if (total > 0) setSnakeProgress(visibleCount / total);
+      });
     })();
   </script>
 </body>
