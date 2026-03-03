@@ -49,10 +49,52 @@
     .glass {
       background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 55%), radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.7), transparent 55%);
     }
+
+    body {
+      cursor: none;
+    }
+
+    .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 30% 30%, #a5b4fc, #4f46e5);
+      pointer-events: none;
+      z-index: 50;
+      transform: translate(-50%, -50%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      transition: transform 0.12s ease-out;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (pointer: coarse) {
+      body {
+        cursor: auto;
+      }
+
+      .cursor-dot {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body class="min-h-screen bg-slate-950 text-slate-100 font-sans">
+  <div id="cursor-dot" class="cursor-dot"></div>
   <div class="fixed inset-0 -z-10 glass"></div>
   <div class="fixed inset-0 -z-20 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
 
@@ -75,7 +117,7 @@
   </header>
 
   <main class="mx-auto max-w-6xl px-6 pb-16 pt-10 space-y-24 md:space-y-32">
-    <section class="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center">
+    <section class="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center reveal reveal-visible">
       <div class="space-y-6">
         <p class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-xs font-medium text-brand-100">
           <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
@@ -142,9 +184,9 @@
         </div>
       </div>
 
-      <div class="space-y-4 rounded-3xl border border-white/5 bg-white/5 p-5 shadow-2xl shadow-slate-900/40 backdrop-blur">
+      <div class="space-y-4 rounded-3xl border border-white/5 bg-white/5 p-5 shadow-2xl shadow-slate-900/40 backdrop-blur reveal">
         <div class="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/60">
-          <img src="/static/media/convocation.jpg" alt="Graduation ceremony" class="h-40 w-full object-cover object-center">
+          <img src="/static/media/convocation.jpg" alt="Graduation ceremony" class="h-56 w-full object-cover object-left">
           <div class="px-3 py-2 text-xs text-slate-200">
             Receiving my convocation degree — the starting point of this journey.
           </div>
@@ -194,7 +236,7 @@
       </div>
     </section>
 
-    <section id="impact" class="space-y-6">
+    <section id="impact" class="space-y-6 reveal" data-reveal>
       <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -237,7 +279,7 @@
       </div>
     </section>
 
-    <section id="journey" class="space-y-8">
+    <section id="journey" class="space-y-8 reveal" data-reveal>
       <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -254,7 +296,7 @@
       </div>
 
       <div class="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-        <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5">
+        <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5 reveal" data-reveal>
           <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
             CANOE — HIGH-OWNERSHIP MICROservice
           </h3>
@@ -293,7 +335,7 @@
           </p>
         </div>
 
-        <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5">
+        <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5 reveal" data-reveal>
           <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
             HOW I SHOW UP ON PROJECTS
           </h3>
@@ -318,7 +360,7 @@
       </div>
     </section>
 
-    <section id="projects" class="space-y-8">
+    <section id="projects" class="space-y-8 reveal" data-reveal>
       <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -331,7 +373,7 @@
       </div>
 
       <div class="grid gap-6 md:grid-cols-3">
-        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4 reveal" data-reveal>
           <h3 class="text-sm font-semibold text-white">CANOE microservices for alternative investments</h3>
           <p class="mt-2 text-xs text-slate-300">
             Architected and shipped production microservices integrating Canoe Intelligence into BNY workflows.
@@ -346,7 +388,7 @@
           </p>
         </article>
 
-        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4 reveal" data-reveal>
           <h3 class="text-sm font-semibold text-white">AI-powered error detection & alerting</h3>
           <p class="mt-2 text-xs text-slate-300">
             Built an AI-driven error detection layer on top of BNY’s internal ML models.
@@ -361,7 +403,7 @@
           </p>
         </article>
 
-        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4 reveal" data-reveal>
           <h3 class="text-sm font-semibold text-white">AI-driven CI/CD image upgrade pipeline</h3>
           <p class="mt-2 text-xs text-slate-300">
             Hackathon project that grew into an enterprise-wide capability.
@@ -378,7 +420,7 @@
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4 reveal" data-reveal>
           <h3 class="text-sm font-semibold text-white">Security vulnerability remediation initiative</h3>
           <p class="mt-2 text-xs text-slate-300">
             Helped drive down security risk across services through both tooling and education.
@@ -390,7 +432,7 @@
           </ul>
         </article>
 
-        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4 reveal" data-reveal>
           <h3 class="text-sm font-semibold text-white">Shipping fast within enterprise constraints</h3>
           <p class="mt-2 text-xs text-slate-300">
             Delivered a backend solution to a client within a week while respecting strict enterprise rules.
@@ -404,7 +446,7 @@
       </div>
     </section>
 
-    <section id="next" class="space-y-6">
+    <section id="next" class="space-y-6 reveal" data-reveal>
       <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -441,7 +483,7 @@
       </div>
     </section>
 
-    <section id="about" class="space-y-6">
+    <section id="about" class="space-y-6 reveal" data-reveal>
       <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
@@ -506,6 +548,32 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      const cursor = document.getElementById('cursor-dot');
+      if (cursor) {
+        window.addEventListener('pointermove', (event) => {
+          cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        });
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => {
+        observer.observe(el);
+      });
+    })();
+  </script>
 </body>
 
 </html>
