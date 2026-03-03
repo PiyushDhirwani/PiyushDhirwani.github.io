@@ -2,36 +2,474 @@
 <html lang="en">
 
 <head>
-    <meta name="google-site-verification" content="yYlIbjPrr8ZV3AgWKYXI51172JdEws1LCljGHkH5Su0" />
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v8=qAJ44G5Bm7">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v8=qAJ44G5Bm7">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg?v8=qAJ44G5Bm7" color="#885bd5">
-    <link rel="shortcut icon" href="/favicon.ico?v8=qAJ44G5Bm7">
-    <meta name="msapplication-TileColor" content="#603cba">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="theme-color" content="#6c63ff" />
-    <meta name="Piyush Dhirwanir Portfolio" content="Web site created using create-react-app" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v8=qAJ44G5Bm7">
-    <meta property="og:title" content="Piyush Dhirwani Portfolio" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://developerfolio.js.org/" />
-    <meta property="og:image" content="https://developerfolio.js.org/static/media/developerActivity.59389695.svg" />
-    <link rel="preload" href="/static/media/Montserrat-Regular.ee653992.ttf" as="font" type="font/woff" crossorigin>
-    <link rel="preload" href="/static/media/Agustina.21f233e1.woff" as="font" type="font/woff" crossorigin>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135618960-2"></script>
-    <script>function gtag() { dataLayer.push(arguments) } window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-135618960-2")</script>
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.13.0/css/all.min.css">
-    <title>Piyush Dhirwani Portfolio</title>
-    <link href="/static/css/main.270afa3b.chunk.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Piyush Dhirwani • Backend, AI & Automation</title>
+  <meta name="description"
+    content="Software engineer building production-grade microservices, AI-powered automation, and reliable backend systems." />
+
+  <meta property="og:title" content="Piyush Dhirwani • Backend, AI & Automation" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://piyushdhirwani.github.io" />
+  <meta property="og:description"
+    content="Explore my journey from IIT Gandhinagar to shipping production microservices and AI automation at BNY." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['system-ui', 'SF Pro Text', 'Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#4f46e5',
+              600: '#4338ca',
+              700: '#3730a3',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .glass {
+      background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 55%), radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.7), transparent 55%);
+    }
+  </style>
 </head>
 
-<body><noscript>You need to enable JavaScript to why run this app.</noscript>
-    <div id="root"></div>
-    <script>!function (c) { function e(e) { for (var t, r, n = e[0], o = e[1], a = e[2], u = 0, i = []; u < n.length; u++)r = n[u], Object.prototype.hasOwnProperty.call(p, r) && p[r] && i.push(p[r][0]), p[r] = 0; for (t in o) Object.prototype.hasOwnProperty.call(o, t) && (c[t] = o[t]); for (h && h(e); i.length;)i.shift()(); return s.push.apply(s, a || []), l() } function l() { for (var e, t = 0; t < s.length; t++) { for (var r = s[t], n = !0, o = 1; o < r.length; o++) { var a = r[o]; 0 !== p[a] && (n = !1) } n && (s.splice(t--, 1), e = d(d.s = r[0])) } return e } var r = {}, f = { 1: 0 }, p = { 1: 0 }, s = []; function d(e) { if (r[e]) return r[e].exports; var t = r[e] = { i: e, l: !1, exports: {} }; return c[e].call(t.exports, t, t.exports, d), t.l = !0, t.exports } d.e = function (s) { var e = []; f[s] ? e.push(f[s]) : 0 !== f[s] && { 3: 1, 4: 1 }[s] && e.push(f[s] = new Promise(function (e, n) { for (var t = "static/css/" + ({}[s] || s) + "." + { 3: "00373544", 4: "a922a401" }[s] + ".chunk.css", o = d.p + t, r = document.getElementsByTagName("link"), a = 0; a < r.length; a++) { var u = (c = r[a]).getAttribute("data-href") || c.getAttribute("href"); if ("stylesheet" === c.rel && (u === t || u === o)) return e() } var i = document.getElementsByTagName("style"); for (a = 0; a < i.length; a++) { var c; if ((u = (c = i[a]).getAttribute("data-href")) === t || u === o) return e() } var l = document.createElement("link"); l.rel = "stylesheet", l.type = "text/css", l.onload = e, l.onerror = function (e) { var t = e && e.target && e.target.src || o, r = new Error("Loading CSS chunk " + s + " failed.\n(" + t + ")"); r.code = "CSS_CHUNK_LOAD_FAILED", r.request = t, delete f[s], l.parentNode.removeChild(l), n(r) }, l.href = o, document.getElementsByTagName("head")[0].appendChild(l) }).then(function () { f[s] = 0 })); var r = p[s]; if (0 !== r) if (r) e.push(r[2]); else { var t = new Promise(function (e, t) { r = p[s] = [e, t] }); e.push(r[2] = t); var n, o = document.createElement("script"); o.charset = "utf-8", o.timeout = 120, d.nc && o.setAttribute("nonce", d.nc), o.src = d.p + "static/js/" + ({}[s] || s) + "." + { 3: "75fdfc1d", 4: "3b387b4d" }[s] + ".chunk.js"; var a = new Error; n = function (e) { o.onerror = o.onload = null, clearTimeout(u); var t = p[s]; if (0 !== t) { if (t) { var r = e && ("load" === e.type ? "missing" : e.type), n = e && e.target && e.target.src; a.message = "Loading chunk " + s + " failed.\n(" + r + ": " + n + ")", a.name = "ChunkLoadError", a.type = r, a.request = n, t[1](a) } p[s] = void 0 } }; var u = setTimeout(function () { n({ type: "timeout", target: o }) }, 12e4); o.onerror = o.onload = n, document.head.appendChild(o) } return Promise.all(e) }, d.m = c, d.c = r, d.d = function (e, t, r) { d.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: r }) }, d.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, d.t = function (t, e) { if (1 & e && (t = d(t)), 8 & e) return t; if (4 & e && "object" == typeof t && t && t.__esModule) return t; var r = Object.create(null); if (d.r(r), Object.defineProperty(r, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t) for (var n in t) d.d(r, n, function (e) { return t[e] }.bind(null, n)); return r }, d.n = function (e) { var t = e && e.__esModule ? function () { return e.default } : function () { return e }; return d.d(t, "a", t), t }, d.o = function (e, t) { return Object.prototype.hasOwnProperty.call(e, t) }, d.p = "/", d.oe = function (e) { throw console.error(e), e }; var t = this["webpackJsonppiyushdhirwani.github.io"] = this["webpackJsonppiyushdhirwani.github.io"] || [], n = t.push.bind(t); t.push = e, t = t.slice(); for (var o = 0; o < t.length; o++)e(t[o]); var h = n; l() }([])</script>
-    <script src="/static/js/2.d23c0b4e.chunk.js"></script>
-    <script src="/static/js/main.29d7d143.chunk.js"></script>
+<body class="min-h-screen bg-slate-950 text-slate-100 font-sans">
+  <div class="fixed inset-0 -z-10 glass"></div>
+  <div class="fixed inset-0 -z-20 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
+
+  <header class="sticky top-0 z-20 border-b border-white/5 bg-slate-950/80 backdrop-blur">
+    <div class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+      <div class="text-sm font-semibold tracking-wide text-slate-300">
+        <span class="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-500/10 text-brand-300 text-xs">
+          PD
+        </span>
+        Piyush Dhirwani
+      </div>
+      <nav class="hidden gap-6 text-sm text-slate-300 md:flex">
+        <a href="#journey" class="hover:text-white">Journey</a>
+        <a href="#impact" class="hover:text-white">Impact</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
+        <a href="#next" class="hover:text-white">Next role</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-6 pb-16 pt-10 space-y-24 md:space-y-32">
+    <section class="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center">
+      <div class="space-y-6">
+        <p class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-xs font-medium text-brand-100">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+          2+ years • Backend, AI automation, Fintech
+        </p>
+        <h1 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-5xl">
+          Shipping production-grade backends<br class="hidden md:block" />
+          and AI-powered workflows.
+        </h1>
+        <p class="max-w-xl text-sm leading-relaxed text-slate-300 md:text-base">
+          I’m a software engineer who enjoys turning messy enterprise workflows into reliable, observable systems.
+          At BNY, I’ve built microservices processing 10,000+ daily transactions, integrated AI into CI/CD and
+          operations, and taken ownership of projects end-to-end from day one.
+        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#journey"
+            class="inline-flex items-center justify-center rounded-full bg-brand-500 px-5 py-2.5 text-sm font-medium text-white shadow-lg shadow-brand-500/40 hover:bg-brand-600 transition">
+            Explore my journey
+          </a>
+          <a href="#projects"
+            class="inline-flex items-center justify-center rounded-full border border-white/10 px-5 py-2.5 text-sm font-medium text-slate-100 hover:border-white/40 hover:bg-white/5 transition">
+            See what I’ve built
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-4 pt-2 text-xs text-slate-400 md:text-sm">
+          <div>
+            <div class="font-medium text-slate-200">Current</div>
+            Software Engineer @ BNY
+          </div>
+          <div>
+            <div class="font-medium text-slate-200">Stack</div>
+            Java • Spring Boot • REST • SQL • AngularJS • Python • GCP • Docker • Kubernetes
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4 rounded-3xl border border-white/5 bg-white/5 p-5 shadow-2xl shadow-slate-900/40 backdrop-blur">
+        <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+          JOURNEY AS A WORKFLOW
+        </h2>
+        <ol class="relative space-y-4 border-l border-slate-700/60 pl-4 text-sm">
+          <li class="space-y-1">
+            <div class="absolute -left-[9px] mt-1 h-4 w-4 rounded-full border border-brand-300 bg-brand-500/80 shadow shadow-brand-500/50">
+            </div>
+            <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
+              STEP 1 — FOUNDATIONS
+            </p>
+            <p class="font-semibold text-slate-50">IIT Gandhinagar → solid CS, ML, and systems base.</p>
+            <p class="text-xs text-slate-400">B.Tech in Computer Science, projects in real-time simulation and full-stack apps.</p>
+          </li>
+          <li class="space-y-1 pt-1">
+            <div class="absolute -left-[9px] mt-1 h-4 w-4 rounded-full border border-slate-500 bg-slate-900"></div>
+            <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
+              STEP 2 — CLOUD INFRA
+            </p>
+            <p class="font-semibold text-slate-50">Adani Group → GCP, Terraform, large-scale workflows.</p>
+            <p class="text-xs text-slate-400">Moved on-prem workflows to cloud and helped ship infra for apps serving millions.</p>
+          </li>
+          <li class="space-y-1 pt-1">
+            <div class="absolute -left-[9px] mt-1 h-4 w-4 rounded-full border border-slate-500 bg-slate-900"></div>
+            <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
+              STEP 3 — PYTHON & AUTOMATION
+            </p>
+            <p class="font-semibold text-slate-50">BNY internship → ETL & ML-powered document processing.</p>
+            <p class="text-xs text-slate-400">Cut ETL latency from ~60s to 15s and shipped the team’s first Python production workflow.</p>
+          </li>
+          <li class="space-y-1 pt-1">
+            <div class="absolute -left-[9px] mt-1 h-4 w-4 rounded-full border border-slate-500 bg-slate-900"></div>
+            <p class="text-xs font-medium uppercase tracking-wider text-slate-400">
+              STEP 4 — OWNERSHIP AT SCALE
+            </p>
+            <p class="font-semibold text-slate-50">Software Engineer @ BNY → microservices, AI, and CI/CD.</p>
+            <p class="text-xs text-slate-400">Took over CANOE integration as a new joiner, acting as the de-facto senior dev and
+              owning design, delivery, and production stability.</p>
+          </li>
+        </ol>
+        <p class="text-xs text-slate-400">
+          Today, I build systems that connect legacy enterprise constraints with modern cloud-native and AI-first practices.
+        </p>
+      </div>
+    </section>
+
+    <section id="impact" class="space-y-6">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+            IMPACT IN NUMBERS
+          </h2>
+          <p class="mt-1 text-xl font-semibold text-white md:text-2xl">
+            Systems that ship, stay up, and save real money.
+          </p>
+        </div>
+      </div>
+      <div class="grid gap-4 md:grid-cols-4">
+        <div class="rounded-2xl border border-white/5 bg-white/5 p-4">
+          <p class="text-2xl font-semibold text-emerald-300">10,000+</p>
+          <p class="mt-1 text-xs font-medium uppercase tracking-wide text-slate-400">daily transactions</p>
+          <p class="mt-2 text-xs text-slate-300">
+            Microservices I architected and deployed process alternative investment workflows with 99.9% uptime.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-white/5 bg-white/5 p-4">
+          <p class="text-2xl font-semibold text-emerald-300">80–90%</p>
+          <p class="mt-1 text-xs font-medium uppercase tracking-wide text-slate-400">ops cost reduction</p>
+          <p class="mt-2 text-xs text-slate-300">
+            Canoe Intelligence integration automated document processing and reconciliation across BNY workflows.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-white/5 bg-white/5 p-4">
+          <p class="text-2xl font-semibold text-emerald-300">75%</p>
+          <p class="mt-1 text-xs font-medium uppercase tracking-wide text-slate-400">less manual triage</p>
+          <p class="mt-2 text-xs text-slate-300">
+            AI-powered error detection flags anomalies, proposes remediation, and triggers real-time email alerts.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-white/5 bg-white/5 p-4">
+          <p class="text-2xl font-semibold text-emerald-300">10,000+</p>
+          <p class="mt-1 text-xs font-medium uppercase tracking-wide text-slate-400">engineers impacted</p>
+          <p class="mt-2 text-xs text-slate-300">
+            AI-driven CI/CD pipeline updates Java base images and opens MRs across enterprise GitLab projects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey" class="space-y-8">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+            EXPLORE MY JOURNEY
+          </h2>
+          <p class="mt-1 text-xl font-semibold text-white md:text-2xl">
+            From new grad to owning production systems.
+          </p>
+        </div>
+        <p class="max-w-xl text-sm text-slate-300">
+          I like thinking of my career as a workflow: inputs are messy constraints, outputs are stable services,
+          observability, and teams that can move faster because complexity is hidden behind clean APIs.
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+        <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+            CANOE — HIGH-OWNERSHIP MICROservice
+          </h3>
+          <p class="text-sm text-slate-200">
+            Shortly after I joined BNY, the senior developer leading CANOE left. The project couldn’t pause, so I stepped
+            up and treated it as if I were the senior engineer on the team.
+          </p>
+          <dl class="mt-3 grid gap-3 text-xs text-slate-300 md:grid-cols-2">
+            <div>
+              <dt class="font-medium text-slate-200">Role</dt>
+              <dd>Acting senior + primary developer for CANOE integration.</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-slate-200">Tech</dt>
+              <dd>Java, Spring Boot, REST APIs, SQL, GitLab CI, Splunk, Eliza AI.</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-slate-200">What I owned</dt>
+              <dd>Design, implementation, deployment, observability, and documentation.</dd>
+            </div>
+            <div>
+              <dt class="font-medium text-slate-200">Outcome</dt>
+              <dd>Production system used across multiple lines of business with measurable cost savings.</dd>
+            </div>
+          </dl>
+          <ul class="mt-3 space-y-2 text-xs text-slate-300">
+            <li>• Designed and implemented REST APIs documented via Swagger UI for easy integration and testing.</li>
+            <li>• Integrated Splunk logging for targeted, queryable logs that cut production debugging time.</li>
+            <li>• Embedded BNY’s internal Eliza AI into CI pipelines to auto-detect outdated backend images and replace
+              them via GitLab API.</li>
+            <li>• Coordinated with managers and infra teams to navigate enterprise approvals and constraints.</li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-300">
+            This was the moment I realized I enjoy taking ownership even when the tech stack is new and the docs are
+            incomplete—as long as there’s a real user and a real problem at the end.
+          </p>
+        </div>
+
+        <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5">
+          <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+            HOW I SHOW UP ON PROJECTS
+          </h3>
+          <ul class="space-y-3 text-xs text-slate-300">
+            <li>
+              <span class="font-medium text-slate-100">Ownership from day one.</span>
+              If something is assigned to me, I treat it as mine—including reading legacy code, talking to other teams,
+              and documenting so others don’t repeat the same path.
+            </li>
+            <li>
+              <span class="font-medium text-slate-100">Shipping under real constraints.</span>
+              I’ve shipped backend services within a week under strict enterprise rules, leaning on automation and AI to
+              accelerate checks, approvals, and quality gates.
+            </li>
+            <li>
+              <span class="font-medium text-slate-100">Making knowledge reusable.</span>
+              I care about knowledge transfer—running walkthroughs, sharing how things work, and making sure others can
+              debug or extend what I’ve built.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="space-y-8">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+            SIGNATURE PROJECTS
+          </h2>
+          <p class="mt-1 text-xl font-semibold text-white md:text-2xl">
+            A few systems I’m proud of.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+          <h3 class="text-sm font-semibold text-white">CANOE microservices for alternative investments</h3>
+          <p class="mt-2 text-xs text-slate-300">
+            Architected and shipped production microservices integrating Canoe Intelligence into BNY workflows.
+          </p>
+          <ul class="mt-3 flex-1 space-y-1.5 text-xs text-slate-300">
+            <li>• Automated end-to-end alternative investment workflows with 10,000+ daily transactions.</li>
+            <li>• Achieved 80–90% operational cost reduction via intelligent document processing and reconciliation.</li>
+            <li>• Ensured reliability with 99.9% uptime, observability, and structured logging.</li>
+          </ul>
+          <p class="mt-3 text-[0.68rem] uppercase tracking-wide text-emerald-300">
+            Java • Spring Boot • REST • SQL • Splunk
+          </p>
+        </article>
+
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+          <h3 class="text-sm font-semibold text-white">AI-powered error detection & alerting</h3>
+          <p class="mt-2 text-xs text-slate-300">
+            Built an AI-driven error detection layer on top of BNY’s internal ML models.
+          </p>
+          <ul class="mt-3 flex-1 space-y-1.5 text-xs text-slate-300">
+            <li>• Automatically identifies anomalies in operational data and proposes remediation paths.</li>
+            <li>• Triggers real-time email alerts, reducing manual intervention by 75%.</li>
+            <li>• Improves reliability for business-critical workflows while keeping humans in the loop.</li>
+          </ul>
+          <p class="mt-3 text-[0.68rem] uppercase tracking-wide text-emerald-300">
+            Java • Spring Boot • Internal ML APIs • Email integrations
+          </p>
+        </article>
+
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+          <h3 class="text-sm font-semibold text-white">AI-driven CI/CD image upgrade pipeline</h3>
+          <p class="mt-2 text-xs text-slate-300">
+            Hackathon project that grew into an enterprise-wide capability.
+          </p>
+          <ul class="mt-3 flex-1 space-y-1.5 text-xs text-slate-300">
+            <li>• Uses AI agents to detect latest Oracle Java base images.</li>
+            <li>• Automatically creates merge requests in GitLab to update Dockerfiles.</li>
+            <li>• Now used by 10,000+ employees, reducing drift and improving security posture.</li>
+          </ul>
+          <p class="mt-3 text-[0.68rem] uppercase tracking-wide text-emerald-300">
+            GitLab CI • Docker • Java • Eliza AI
+          </p>
+        </article>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+          <h3 class="text-sm font-semibold text-white">Security vulnerability remediation initiative</h3>
+          <p class="mt-2 text-xs text-slate-300">
+            Helped drive down security risk across services through both tooling and education.
+          </p>
+          <ul class="mt-3 flex-1 space-y-1.5 text-xs text-slate-300">
+            <li>• Used VeraCode and other scanners to continuously surface issues.</li>
+            <li>• Led remediation efforts that reduced critical vulnerabilities by 60%.</li>
+            <li>• Mentored developers on secure coding practices to prevent regressions.</li>
+          </ul>
+        </article>
+
+        <article class="flex flex-col rounded-2xl border border-white/5 bg-slate-950/70 p-4">
+          <h3 class="text-sm font-semibold text-white">Shipping fast within enterprise constraints</h3>
+          <p class="mt-2 text-xs text-slate-300">
+            Delivered a backend solution to a client within a week while respecting strict enterprise rules.
+          </p>
+          <ul class="mt-3 flex-1 space-y-1.5 text-xs text-slate-300">
+            <li>• Navigated Jira controls, quality gates, approvals, and infra constraints.</li>
+            <li>• Used AI and automation to speed up validation steps and reduce manual checks.</li>
+            <li>• Shipped a stable, production-ready backend on time.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="next" class="space-y-6">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+            WHAT I’M LOOKING FOR NEXT
+          </h2>
+          <p class="mt-1 text-xl font-semibold text-white md:text-2xl">
+            A place to own backend systems—and keep learning.
+          </p>
+        </div>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="space-y-3 rounded-3xl border border-white/5 bg-slate-950/70 p-5 text-sm text-slate-300">
+          <p>
+            In my next role, I want to keep growing as a software engineer by working on meaningful products and
+            real-world problems. I enjoy building backend systems and APIs, and I’m comfortable moving across the stack
+            when it helps the team ship.
+          </p>
+          <p>
+            I’m especially interested in Java-based systems, cloud-native development, and scalable services—but I’m
+            open to new tools and languages if they’re the right fit for the problem.
+          </p>
+        </div>
+        <div class="space-y-3 rounded-3xl border border-white/5 bg-slate-950/70 p-5 text-sm text-slate-300">
+          <p>
+            I’m looking for teams where I can:
+          </p>
+          <ul class="mt-1 space-y-1.5 text-sm">
+            <li>• Take real ownership of services from design to production.</li>
+            <li>• Learn from experienced engineers and gradually increase my scope.</li>
+            <li>• Work with modern software practices and thoughtful engineering culture.</li>
+            <li>• Share what I learn through documentation, walkthroughs, and mentoring.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="space-y-6">
+      <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+            BEYOND THE RESUME
+          </h2>
+          <p class="mt-1 text-xl font-semibold text-white md:text-2xl">
+            Curiosity, side quests, and systems thinking.
+          </p>
+        </div>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="space-y-3 rounded-3xl border border-white/5 bg-slate-950/70 p-5 text-sm text-slate-300">
+          <p>
+            Recently, I taught myself how to plan end-to-end international travel—flight bookings, currency, local
+            logistics—and then helped friends do the same. It reminded me that once I understand a system deeply, I can
+            usually explain it clearly to others.
+          </p>
+          <p>
+            I’m also the kind of person who keeps digging if something feels off, whether it’s a broken government
+            website endpoint or a misconfigured enterprise workflow. I like understanding how things really work
+            under the hood.
+          </p>
+        </div>
+        <div class="space-y-3 rounded-3xl border border-white/5 bg-slate-950/70 p-5 text-sm text-slate-300">
+          <p>
+            Outside of work, I enjoy reading about security, infrastructure, and how large systems evolve over time.
+            Reddit is one of my favourite products because it surfaces real stories and edge cases faster than most
+            official channels.
+          </p>
+          <p>
+            I’ve been lucky to work with managers and teammates who trusted me early, and I try to pay that forward by
+            making it easier for the next engineer to ramp up on complex systems.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="border-t border-white/5 bg-slate-950/80">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="text-sm font-semibold text-white">
+          Let’s talk about building reliable backends and AI-powered workflows.
+        </p>
+        <p class="mt-1 text-xs text-slate-400">
+          I’m open to backend-heavy and full-stack roles across domains where I can own systems and keep learning.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-sm">
+        <a href="mailto:dhirwanipiyush2@gmail.com"
+          class="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-slate-100 hover:border-white/40 hover:bg-white/5 transition">
+          Email
+        </a>
+        <a href="https://linkedin.com/in/piyush-dhirwani-879672214" target="_blank" rel="noreferrer"
+          class="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-slate-100 hover:border-white/40 hover:bg-white/5 transition">
+          LinkedIn
+        </a>
+        <a href="https://github.com/PiyushDhirwani" target="_blank" rel="noreferrer"
+          class="inline-flex items-center rounded-full border border-white/10 px-4 py-2 text-slate-100 hover:border-white/40 hover:bg-white/5 transition">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
