@@ -100,13 +100,14 @@ body {
 }
 
 .header .logo {
-    display: block;
+    display: flex;
+    align-items: center;
     flex: none;
     float: left;
     font-size: 1.5em;
     text-decoration: none;
-    margin-top: 10px;
-    line-height: normal
+    margin-top: 0;
+    line-height: 1
 }
 
 .header .logo-name {
@@ -205,6 +206,10 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between
+    }
+
+    .header .logo {
+        float: none
     }
 
     .header .menu {
