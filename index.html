@@ -108,6 +108,111 @@
       transform: translateY(0);
     }
 
+    #journey-timeline {
+      --journey-rail-x: 50%;
+      --journey-rail-w: 2px;
+      --journey-gap: 28px;
+      --journey-arrow: rgba(148, 163, 184, 0.55);
+    }
+
+    .journey-step {
+      display: grid;
+      grid-template-columns: 1fr 56px 1fr;
+      column-gap: 16px;
+      padding-left: 0 !important;
+      align-items: start;
+    }
+
+    .journey-icon {
+      grid-column: 2;
+      justify-self: center;
+      position: relative !important;
+      left: auto !important;
+      top: auto !important;
+      transform: none !important;
+      margin-top: 20px;
+      z-index: 3;
+    }
+
+    .journey-card {
+      position: relative;
+    }
+
+    .journey-step:nth-child(odd) .journey-card {
+      grid-column: 3;
+    }
+
+    .journey-step:nth-child(even) .journey-card {
+      grid-column: 1;
+    }
+
+    .journey-step:nth-child(odd) .journey-card::before,
+    .journey-step:nth-child(even) .journey-card::before {
+      content: '';
+      position: absolute;
+      top: 44px;
+      width: var(--journey-gap);
+      height: 2px;
+      background: var(--journey-arrow);
+    }
+
+    .journey-step:nth-child(odd) .journey-card::before {
+      left: calc(-1 * var(--journey-gap));
+    }
+
+    .journey-step:nth-child(even) .journey-card::before {
+      right: calc(-1 * var(--journey-gap));
+    }
+
+    .journey-step:nth-child(odd) .journey-card::after,
+    .journey-step:nth-child(even) .journey-card::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
+
+    .journey-step:nth-child(odd) .journey-card::after {
+      left: -10px;
+      border-left: 8px solid var(--journey-arrow);
+    }
+
+    .journey-step:nth-child(even) .journey-card::after {
+      right: -10px;
+      border-right: 8px solid var(--journey-arrow);
+    }
+
+    @media (max-width: 720px) {
+      .journey-step {
+        grid-template-columns: 44px 1fr;
+        column-gap: 12px;
+      }
+
+      .journey-icon {
+        grid-column: 1;
+        justify-self: start;
+        margin-top: 16px;
+      }
+
+      .journey-step:nth-child(odd) .journey-card,
+      .journey-step:nth-child(even) .journey-card {
+        grid-column: 2;
+      }
+
+      .journey-step:nth-child(odd) .journey-card::before,
+      .journey-step:nth-child(even) .journey-card::before {
+        display: none;
+      }
+
+      .journey-step:nth-child(odd) .journey-card::after,
+      .journey-step:nth-child(even) .journey-card::after {
+        display: none;
+      }
+    }
+
     @media (pointer: coarse) {
       body {
         cursor: auto;
@@ -330,48 +435,48 @@
 
       <!-- Journey steps as connected boxes -->
       <div id="journey-timeline" class="relative mx-auto max-w-2xl">
-        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-700/60" aria-hidden="true"></div>
-        <div id="journey-connector" class="absolute left-6 top-0 w-0.5 bg-gradient-to-b from-brand-500 to-emerald-500 journey-line" aria-hidden="true"></div>
+        <div class="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-slate-700/60" aria-hidden="true"></div>
+        <div id="journey-connector" class="absolute left-1/2 top-0 w-0.5 -translate-x-1/2 bg-gradient-to-b from-brand-500 to-emerald-500 journey-line" aria-hidden="true"></div>
 
         <div class="relative space-y-8">
-          <article class="journey-box relative flex gap-6 pl-14" data-journey-step>
-            <div class="absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-slate-900/90 p-2 shadow-lg">
+          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
+            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-slate-900/90 p-2 shadow-lg">
               <img src="/static/media/iitgn_logo.png" alt="IIT Gandhinagar" class="h-full w-full object-contain">
             </div>
-            <div class="flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
+            <div class="journey-card flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Step 1 — Foundations</p>
               <h3 class="mt-1 text-lg font-semibold text-white">IIT Gandhinagar</h3>
               <p class="mt-2 text-sm text-slate-300">B.Tech in Computer Science. Solid base in CS, ML, and systems with projects in real-time simulation and full-stack apps.</p>
             </div>
           </article>
 
-          <article class="journey-box relative flex gap-6 pl-14" data-journey-step>
-            <div class="absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
+          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
+            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
               <img src="/static/media/adani.png" alt="Adani Group" class="h-full w-full object-contain">
             </div>
-            <div class="flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
+            <div class="journey-card flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Step 2 — Cloud infra</p>
               <h3 class="mt-1 text-lg font-semibold text-white">Adani Group</h3>
               <p class="mt-2 text-sm text-slate-300">Moved on-prem workflows to GCP with Terraform. Helped ship infra for Adani One serving millions of users.</p>
             </div>
           </article>
 
-          <article class="journey-box relative flex gap-6 pl-14" data-journey-step>
-            <div class="absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
+          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
+            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 shadow-lg">
               <img src="static/media/bny_logo.png" alt="BNY" class="h-full w-full object-contain">
             </div>
-            <div class="flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
+            <div class="journey-card flex-1 rounded-2xl border border-white/10 bg-slate-950/80 p-5 shadow-xl">
               <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Step 3 — Python & automation</p>
               <h3 class="mt-1 text-lg font-semibold text-white">BNY (Intern)</h3>
               <p class="mt-2 text-sm text-slate-300">Cut ETL latency from ~60s to 15s. Shipped the team's first Python production workflow with ML-powered document processing.</p>
             </div>
           </article>
 
-          <article class="journey-box relative flex gap-6 pl-14" data-journey-step>
-            <div class="absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-brand-500/30 bg-brand-500/10 p-2 shadow-lg">
+          <article class="journey-box journey-step relative flex gap-6 pl-14" data-journey-step>
+            <div class="journey-icon absolute left-0 top-6 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-xl border border-brand-500/30 bg-brand-500/10 p-2 shadow-lg">
               <img src="static/media/bny_logo.png" alt="BNY Mellon" class="h-full w-full object-contain">
             </div>
-            <div class="flex-1 rounded-2xl border border-brand-500/20 bg-slate-950/80 p-5 shadow-xl">
+            <div class="journey-card flex-1 rounded-2xl border border-brand-500/20 bg-slate-950/80 p-5 shadow-xl">
               <p class="text-xs font-semibold uppercase tracking-wider text-brand-300">Step 4 — Ownership at scale</p>
               <h3 class="mt-1 text-lg font-semibold text-white">BNY Mellon (Software Engineer)</h3>
               <p class="mt-2 text-sm text-slate-300">Took over CANOE integration as a new joiner. Architected microservices, integrated AI into CI/CD, and own design, delivery, and production stability.</p>
