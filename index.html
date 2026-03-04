@@ -5,11 +5,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Piyush Dhirwani • Backend Developer, AI & Automation</title>
+  <title>Piyush Dhirwani • Full Stack Developer, Using AI For Shipping Fast</title>
   <meta name="description"
-    content="Software engineer building production-grade microservices, AI-powered automation, and reliable backend systems." />
+    content="Software engineer building production-grade microservices, AI-powered automation, and reliable end-to-end systems." />
 
-  <meta property="og:title" content="Piyush Dhirwani • Backend, AI & Automation" />
+  <meta property="og:title" content="Piyush Dhirwani • Full Stack, AI & Automation" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://piyushdhirwani.github.io" />
   <meta property="og:description"
@@ -86,6 +86,24 @@
 
     .hero-photo {
       object-position: 50% 65%;
+    }
+
+    .bg-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -30;
+      pointer-events: none;
+      filter: saturate(0.9) contrast(1.05) brightness(0.75);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bg-video {
+        display: none;
+      }
     }
 
     .journey-line {
@@ -268,6 +286,9 @@
 </head>
 
 <body class="min-h-screen bg-slate-950 text-slate-100 font-sans">
+  <video class="bg-video" autoplay muted loop playsinline preload="metadata">
+    <source src="/static/media/172170-846731303_small.mp4" type="video/mp4" />
+  </video>
   <div id="cursor-dot" class="cursor-dot"></div>
   <div class="fixed inset-0 -z-10 glass"></div>
   <div class="fixed inset-0 -z-20 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
@@ -542,14 +563,14 @@
 
       <div class="grid gap-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] pt-8">
         <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5 reveal" data-reveal>
-          <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+          <h3 class="text-base font-semibold uppercase tracking-[0.18em] text-slate-400">
             CANOE — HIGH-OWNERSHIP MICROservice
           </h3>
           <p class="text-sm text-slate-200">
             Shortly after I joined BNY, the senior developer leading CANOE left. The project couldn’t pause, so I stepped
             up and treated it as if I were the senior engineer on the team.
           </p>
-          <dl class="mt-3 grid gap-3 text-xs text-slate-300 md:grid-cols-2">
+          <dl class="mt-3 grid gap-3 text-sm text-slate-300 md:grid-cols-2">
             <div>
               <dt class="font-medium text-slate-200">Role</dt>
               <dd>Acting senior + primary developer for CANOE integration.</dd>
@@ -567,24 +588,24 @@
               <dd>Production system used across multiple lines of business with measurable cost savings.</dd>
             </div>
           </dl>
-          <ul class="mt-3 space-y-2 text-xs text-slate-300">
+          <ul class="mt-3 space-y-2 text-sm text-slate-300">
             <li>• Designed and implemented REST APIs documented via Swagger UI for easy integration and testing.</li>
             <li>• Integrated Splunk logging for targeted, queryable logs that cut production debugging time.</li>
             <li>• Embedded BNY’s internal Eliza AI into CI pipelines to auto-detect outdated backend images and replace
               them via GitLab API.</li>
             <li>• Coordinated with managers and infra teams to navigate enterprise approvals and constraints.</li>
           </ul>
-          <p class="mt-3 text-xs text-slate-300">
+          <p class="mt-3 text-sm text-slate-300">
             This was the moment I realized I enjoy taking ownership even when the tech stack is new and the docs are
             incomplete—as long as there’s a real user and a real problem at the end.
           </p>
         </div>
 
         <div class="space-y-4 rounded-3xl border border-white/5 bg-slate-950/70 p-5 reveal" data-reveal>
-          <h3 class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+          <h3 class="text-base font-semibold uppercase tracking-[0.18em] text-slate-400">
             HOW I SHOW UP ON PROJECTS
           </h3>
-          <ul class="space-y-3 text-xs text-slate-300">
+          <ul class="space-y-3 text-sm text-slate-300">
             <li>
               <span class="font-medium text-slate-100">Ownership from day one.</span>
               If something is assigned to me, I treat it as mine—including reading legacy code, talking to other teams,
