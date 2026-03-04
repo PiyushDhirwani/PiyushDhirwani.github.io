@@ -95,7 +95,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      z-index: -30;
+      z-index: -20;
       pointer-events: none;
       filter: saturate(0.9) contrast(1.05) brightness(0.75);
     }
@@ -285,13 +285,13 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-slate-950 text-slate-100 font-sans">
+<body class="min-h-screen bg-transparent text-slate-100 font-sans">
   <video class="bg-video" autoplay muted loop playsinline preload="metadata">
     <source src="/static/media/172170-846731303_small.mp4" type="video/mp4" />
   </video>
   <div id="cursor-dot" class="cursor-dot"></div>
   <div class="fixed inset-0 -z-10 glass"></div>
-  <div class="fixed inset-0 -z-20 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900"></div>
+  <div class="fixed inset-0 -z-10 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-900/85"></div>
 
   <header class="sticky top-0 z-20 border-b border-white/5 bg-slate-950/80 backdrop-blur">
     <div class="mx-auto max-w-6xl px-6 py-3 flex items-center justify-between">
