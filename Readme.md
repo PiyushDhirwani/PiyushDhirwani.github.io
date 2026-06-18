@@ -1,0 +1,13 @@
+Hi, I'm Piyush.
+
+I'm currently a Software Engineer at BNY Mellon, where I've spent the last two years building distributed backend systems, microservices, workflow automation, and AI-driven solutions in a large-scale financial environment. My work ranges from designing APIs and backend services to solving production issues, improving deployment pipelines, and building systems that support critical financial workflows.
+
+One experience that shaped me early in my career was taking ownership of a major enterprise integration project shortly after joining the team. The lead developer had left the organization, and I had to understand the architecture, navigate ambiguity, coordinate across multiple teams, and ultimately deliver the solution end-to-end. That experience taught me how to learn quickly, operate independently, and focus on outcomes rather than waiting for instructions.
+
+More recently, beyond traditional software development, I've become increasingly interested in AI-native systems. At BNY, we're exploring how conversational interfaces, retrieval systems, and MCP-connected tools can reduce friction across enterprise workflows. Historically, users had to navigate multiple applications, dashboards, and workflows to find information or complete a task. Increasingly, software is moving toward a world where many actions are simply a conversation away. Instead of clicking through multiple screens, users can express intent, and AI systems can retrieve information, interact with internal tools, and execute workflows on their behalf. I believe this shift from UI-driven workflows to intent-driven workflows is one of the most important changes happening in software today.
+
+Outside of work, I spend a lot of time building. I'm currently working on StitchUp, a platform that aims to connect customers with custom clothing professionals through technology and AI-powered experiences. The long-term vision is to make custom clothing more accessible through conversational interfaces, intelligent recommendations, digital measurements, and AI-assisted customer experiences. Building it has taught me a lot about product thinking, user behavior, and turning ideas into working systems.
+
+What excites me most is working on difficult problems with ambitious people. I enjoy environments with high ownership, fast feedback loops, and the freedom to experiment. I'm a quick learner, comfortable picking up new technologies, and I genuinely enjoy figuring things out when there isn't a clear playbook available.
+
+Thanks for taking the time to watch this video. I'd love to learn more about what you're building and how I could contribute.
